@@ -78,7 +78,14 @@ var config = {
       {
         test: /\.css$/,
         loaders: ['style', 'css', 'postcss'],
-      }
+      },
+      {
+        test: /\.(jpe?g|png|gif|webp|svg)(\?.*)?$/,
+        loader: 'file',
+        query: {
+          name: 'assets/[name].[ext]'
+        }
+      },
     ]
   },
   postcss: [
