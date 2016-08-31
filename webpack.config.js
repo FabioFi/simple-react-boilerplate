@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var autoprefixer = require('autoprefixer')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 
@@ -72,11 +73,20 @@ var config = {
         }
       },
       {
-        test: /\.scss$/,
-        loaders: ['style', 'css', 'sass']
+        test: /\.css$/,
+        loaders: ['style', 'css', 'postcss'],
+      },
+      {
+        test: /(\.scss|\.sass)$/,
+        loaders: ['style', 'css', 'postcss', 'sass']
       }
     ]
   },
+  postcss: [
+    autoprefixer({
+      browsers: ['last 2 versions']
+    })
+  ],
   sassLoader: {
     includePaths: [path.join(__dirname, 'src/css')],
     outputStyle: DEV ? 'expanded' : 'compressed'
