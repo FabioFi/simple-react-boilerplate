@@ -1,14 +1,14 @@
 ## React Boilerplate
 
-It is a basic React project boilerplate, it uses Webpack, Babel, React Router and SASS.
+It is a simple React project boilerplate, it uses Webpack, Babel, React Router and PreCSS.
 
-### Usage [DEV]
+### Usage
 
 - `git clone https://github.com/AbeEstrada/react-boilerplate.git`
 - `cd react-boilerplate`
 - `npm install`
 - `npm start`
-- Open your browser: `http://localhost:8080/`
+- Go to `http://localhost:8080/`
 
 ### Build
 
