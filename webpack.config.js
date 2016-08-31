@@ -84,11 +84,7 @@ var config = {
     autoprefixer({
       browsers: ['last 2 versions']
     })
-  ],
-  sassLoader: {
-    includePaths: [path.join(__dirname, 'src/css')],
-    outputStyle: DEV ? 'expanded' : 'compressed'
-  }
+  ]
 }
 
 config.plugins.unshift(new webpack.DefinePlugin({
