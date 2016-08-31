@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var precss = require('precss')
 var autoprefixer = require('autoprefixer')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
@@ -15,7 +16,7 @@ var config = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss'],
+    extensions: ['', '.js', '.jsx', '.css'],
     alias: {
       css: '../css'
     }
@@ -75,14 +76,11 @@ var config = {
       {
         test: /\.css$/,
         loaders: ['style', 'css', 'postcss'],
-      },
-      {
-        test: /(\.scss|\.sass)$/,
-        loaders: ['style', 'css', 'postcss', 'sass']
       }
     ]
   },
   postcss: [
+    precss,
     autoprefixer({
       browsers: ['last 2 versions']
     })

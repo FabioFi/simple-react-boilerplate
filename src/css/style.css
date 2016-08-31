@@ -1,5 +1,7 @@
 @import "reset";
 
+$color: red;
+
 h1 {
     font-size: 32px;
     margin: 10px;
@@ -10,5 +12,10 @@ h2 {
 }
 ul {
     margin: 5px 10px;
+    li {
+        a {
+            color: $color;
+        }
+    }
 }
 
