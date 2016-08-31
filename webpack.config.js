@@ -8,7 +8,7 @@ var DEV = process.env.NODE_ENV === 'development'
 var config = {
   entry: [path.join(__dirname, 'src/js/index.js')],
   output: {
-    publicPath: DEV ? 'http://localhost:8080/' : null,
+    publicPath: DEV ? '/' : null,
     pathinfo: true,
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js'
@@ -90,7 +90,7 @@ config.plugins.unshift(new webpack.DefinePlugin({
 }))
 
 if (DEV) {
-  config.entry.unshift('webpack-dev-server/client?http://0.0.0.0:8080')
+  config.entry.unshift('webpack-dev-server/client?/')
   config.entry.unshift('webpack/hot/dev-server')
   config.module.loaders.unshift({
     test: /\.jsx?$/,
