@@ -1,17 +1,12 @@
-@import "reset";
+@import "normalize";
 
 $color: red;
 
-h1 {
-    font-size: 32px;
-    margin: 10px;
+.container {
+    margin: 0 20px;
 }
-h2 {
-    font-size: 24px;
-    margin: 5px 10px;
-}
+
 ul {
-    margin: 5px 10px;
     li {
         a {
             color: $color;
