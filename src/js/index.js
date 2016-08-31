@@ -3,9 +3,9 @@ import { render } from 'react-dom'
 import { Router, Route, useRouterHistory, IndexRoute } from 'react-router'
 import { createHistory } from 'history'
 
-import App from './components/App'
-import Home from './components/Home'
-import Hello from './components/Hello'
+import App from './App'
+import Home from './Home'
+import Hello from './Hello'
 
 import 'css/style'
 
