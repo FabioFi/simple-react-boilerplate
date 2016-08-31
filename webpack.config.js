@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var DashboardPlugin = require('webpack-dashboard/plugin');
 var precss = require('precss')
 var autoprefixer = require('autoprefixer')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -24,6 +25,7 @@ var config = {
   target: 'web',
   devtool: DEV ? 'eval' : null, // 'source-map'
   plugins: DEV ? [
+    new DashboardPlugin(),
     new CaseSensitivePathsPlugin(),
     new HtmlWebpackPlugin({
       inject: true,
