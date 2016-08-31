@@ -8,6 +8,7 @@ It is a basic React project boilerplate, it uses Webpack, Babel, React Router an
 - `cd react-boilerplate`
 - `npm install`
 - `npm start`
+- Open your browser: `http://localhost:8080/`
 
 ### Build
 
