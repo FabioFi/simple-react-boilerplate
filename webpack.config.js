@@ -29,12 +29,12 @@ var config = {
     new CaseSensitivePathsPlugin(),
     new HtmlWebpackPlugin({
       inject: true,
-      template: path.join(__dirname, 'index.html')
+      template: path.join(__dirname, 'src/index.html')
     })
   ] : [ // Production
     new HtmlWebpackPlugin({
       inject: true,
-      template: path.join(__dirname, 'index.html'),
+      template: path.join(__dirname, 'src/index.html'),
       minify: {
         removeComments: true,
         collapseWhitespace: true,
