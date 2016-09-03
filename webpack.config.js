@@ -91,7 +91,11 @@ var config = {
   postcss: [
     precss,
     autoprefixer({
-      browsers: ['last 2 versions']
+      browsers: [
+        'last 2 versions',
+        'Firefox ESR',
+        'not ie < 9', // React doesn't support IE8 anyway
+      ]
     })
   ]
 }
