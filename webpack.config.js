@@ -80,12 +80,29 @@ var config = {
         loaders: ['style', 'css', 'postcss'],
       },
       {
-        test: /\.(jpe?g|png|gif|webp|svg)(\?.*)?$/,
+        test: /\.(ico|jpe?g|png|gif|webp|svg)(\?.*)?$/,
+        include: path.join(__dirname, 'src'),
+        exclude: /\/favicon.ico$/,
         loader: 'file',
         query: {
           name: 'assets/[name].[ext]'
         }
       },
+      {
+        test: /\/favicon.ico$/,
+        include: path.join(__dirname, 'src'),
+        loader: 'file',
+        query: {
+          name: 'favicon.ico'
+        }
+      },
+      {
+        test: /\.html$/,
+        loader: 'html',
+        query: {
+          attrs: ['link:href'],
+        }
+      }
     ]
   },
   postcss: [

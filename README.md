@@ -2,6 +2,8 @@
 
 It is a simple React project boilerplate, it uses Webpack, Babel, React Router and PreCSS.
 
+Inspired by [`create-react-app`](https://github.com/facebookincubator/create-react-app).
+
 ### Usage
 
 - `git clone https://github.com/AbeEstrada/react-boilerplate.git`
