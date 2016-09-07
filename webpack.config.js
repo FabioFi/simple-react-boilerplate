@@ -27,6 +27,7 @@ var config = {
   plugins: DEV ? [
     new DashboardPlugin(),
     new CaseSensitivePathsPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       inject: true,
       template: path.join(__dirname, 'src/index.html')
@@ -125,12 +126,17 @@ config.plugins.unshift(new webpack.DefinePlugin({
 
 if (DEV) {
   config.entry.unshift('webpack-dev-server/client?/')
-  config.entry.unshift('webpack/hot/dev-server')
   config.module.loaders.unshift({
     test: /\.jsx?$/,
     exclude: /node_modules/,
     loader: 'react-hot'
   })
+  config.devServer = {
+    hot: true,
+    inline: true,
+    colors: true,
+    port: process.env.PORT || 3000
+  }
 }
 
 module.exports = config
