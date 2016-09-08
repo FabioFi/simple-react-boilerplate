@@ -11,6 +11,7 @@ var DEV = process.env.NODE_ENV === 'development'
 var config = {
   entry: [path.join(__dirname, 'src/js/index.js')],
   output: {
+    publicPath: '/',
     pathinfo: true,
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js'
@@ -131,10 +132,10 @@ if (DEV) {
     loader: 'react-hot'
   })
   config.devServer = {
-    publicPath: '/',
     hot: true,
     inline: true,
     colors: true,
+    historyApiFallback: true,
     port: process.env.PORT || 3000
   }
 }
