@@ -105,13 +105,13 @@ var config = {
     ]
   },
   postcss: [
-    require('postcss-partial-import'),
-    require('postcss-mixins'),
-    require('postcss-advanced-variables'),
-    require('postcss-custom-media'),
-    require('postcss-extend'),
-    require('postcss-nested'),
-    require('postcss-property-lookup'),
+    require('postcss-partial-import')(),
+    require('postcss-mixins')(),
+    require('postcss-advanced-variables')(),
+    require('postcss-custom-media')(),
+    require('postcss-extend')(),
+    require('postcss-nested')(),
+    require('postcss-property-lookup')(),
     require('autoprefixer')({
       browsers: [
         'last 2 versions',
