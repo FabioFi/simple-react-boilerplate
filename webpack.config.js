@@ -1,8 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
 var DashboardPlugin = require('webpack-dashboard/plugin');
-var precss = require('precss')
-var autoprefixer = require('autoprefixer')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 
@@ -107,8 +105,14 @@ var config = {
     ]
   },
   postcss: [
-    precss,
-    autoprefixer({
+    require('postcss-partial-import'),
+    require('postcss-mixins'),
+    require('postcss-advanced-variables'),
+    require('postcss-custom-media'),
+    require('postcss-extend'),
+    require('postcss-nested'),
+    require('postcss-property-lookup'),
+    require('autoprefixer')({
       browsers: [
         'last 2 versions',
         'Firefox ESR',
