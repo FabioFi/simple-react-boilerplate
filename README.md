@@ -10,7 +10,7 @@ Inspired by [`create-react-app`](https://github.com/facebookincubator/create-rea
 - `cd react-boilerplate`
 - `npm install`
 - `npm start`
-- Go to `http://localhost:8080/`
+- Go to `http://localhost:3000/`
 
 ### Build
 
