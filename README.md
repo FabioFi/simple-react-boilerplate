@@ -1,6 +1,6 @@
 ## React Boilerplate
 
-It is a simple React project boilerplate, it uses Webpack, Babel, React Router and PreCSS.
+It is a simple React project boilerplate, it uses Webpack, Babel, React Router and SASS like PostCSS plugins.
 
 Inspired by [`create-react-app`](https://github.com/facebookincubator/create-react-app).
 
