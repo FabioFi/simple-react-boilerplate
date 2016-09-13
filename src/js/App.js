@@ -1,5 +1,8 @@
 import React from 'react'
 
+import 'normalize.css/normalize.css'
+import 'css/style'
+
 class App extends React.Component {
   render () {
     return (

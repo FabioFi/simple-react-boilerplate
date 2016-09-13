@@ -6,8 +6,6 @@ import App from './App'
 import Home from './Home'
 import Hello from './Hello'
 
-import 'css/style'
-
 render((
   <Router history={browserHistory}>
     <Route path='/' component={App}>
