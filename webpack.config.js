@@ -119,7 +119,12 @@ var config = {
         'not ie < 9', // React doesn't support IE8 anyway
       ]
     })
-  ]
+  ],
+  node: {
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  }
 }
 
 config.plugins.unshift(new webpack.DefinePlugin({
