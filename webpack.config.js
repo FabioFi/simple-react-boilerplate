@@ -139,6 +139,7 @@ if (DEV) {
     hot: true,
     inline: true,
     colors: true,
+    clientLogLevel: 'none',
     historyApiFallback: true,
     port: process.env.PORT || 3000
   }
