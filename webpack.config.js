@@ -7,6 +7,7 @@ var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 var DEV = process.env.NODE_ENV === 'development'
 
 var config = {
+  bail: true,
   entry: [path.join(__dirname, 'src/js/index.js')],
   output: {
     publicPath: '/',
