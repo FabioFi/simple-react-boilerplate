@@ -6,10 +6,10 @@ class Home extends React.Component {
     const name = 'world'
     return (
       <div className='home'>
-          <h2>Home</h2>
-          <ul>
-              <li><Link to={`/hello/${name}`}>Hello</Link></li>
-          </ul>
+        <h2>Home</h2>
+        <ul>
+          <li><Link to={`/hello/${name}`}>Hello</Link></li>
+        </ul>
       </div>
     )
   }
