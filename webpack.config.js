@@ -1,6 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
-var DashboardPlugin = require('webpack-dashboard/plugin');
+var DashboardPlugin = require('webpack-dashboard/plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 
@@ -71,13 +71,13 @@ var config = {
         exclude: /node_modules/,
         loader: 'babel',
         query: {
-          cacheDirectory: DEV ? true : false,
+          cacheDirectory: DEV,
           presets: ['es2015', 'react']
         }
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css', 'postcss'],
+        loaders: ['style', 'css', 'postcss']
       },
       {
         test: /\.(ico|jpe?g|png|gif|webp|svg)(\?.*)?$/,
@@ -100,7 +100,7 @@ var config = {
         test: /\.html$/,
         loader: 'html',
         query: {
-          attrs: ['link:href'],
+          attrs: ['link:href']
         }
       }
     ]
@@ -117,7 +117,7 @@ var config = {
       browsers: [
         'last 2 versions',
         'Firefox ESR',
-        'not ie < 9', // React doesn't support IE8 anyway
+        'not ie < 9' // React doesn't support IE8 anyway
       ]
     })
   ],
