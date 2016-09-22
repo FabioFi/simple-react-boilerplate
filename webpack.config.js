@@ -10,7 +10,7 @@ var config = {
   entry: [path.join(__dirname, 'src/js/index.js')],
   output: {
     publicPath: '/',
-    pathinfo: true,
+    pathinfo: DEV,
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js'
   },
