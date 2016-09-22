@@ -1,7 +1,8 @@
 var path = require('path')
 var webpack = require('webpack')
-var DashboardPlugin = require('webpack-dashboard/plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var DashboardPlugin = require('webpack-dashboard/plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 
 var DEV = process.env.NODE_ENV === 'development'
@@ -47,6 +48,7 @@ var config = {
         minifyURLs: true
       }
     }),
+    new ExtractTextPlugin('style.css'),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
@@ -76,7 +78,7 @@ var config = {
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css', 'postcss']
+        loader: DEV ? 'style!css!postcss' : ExtractTextPlugin.extract('style', 'css?-autoprefixer!postcss')
       },
       {
         test: /\.(ico|jpe?g|png|gif|webp|svg)(\?.*)?$/,
