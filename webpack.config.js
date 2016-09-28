@@ -73,7 +73,9 @@ var config = {
       },
       {
         test: /\.css$/,
-        loader: DEV ? 'style!css!postcss' : ExtractTextPlugin.extract('style', 'css?-autoprefixer!postcss')
+        loader: DEV ?
+          'style!css?modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss' :
+          ExtractTextPlugin.extract('style', 'css?-autoprefixer&modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss')
       },
       {
         test: /\.(ico|jpe?g|png|gif|webp|svg)(\?.*)?$/,

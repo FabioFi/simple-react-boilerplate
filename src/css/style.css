@@ -4,10 +4,17 @@ $color: red;
     margin: 0 20px;
 }
 
-ul {
-    li {
-        a {
-            color: $color;
+.home, .hello {
+    ul li a {
+        color: $color;
+    }
+}
+
+.hello {
+    ul li a {
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
         }
     }
 }
