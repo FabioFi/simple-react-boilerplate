@@ -1,7 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var DashboardPlugin = require('webpack-dashboard/plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 
@@ -24,7 +23,6 @@ var config = {
   target: 'web',
   devtool: DEV ? 'eval' : null, // 'source-map'
   plugins: DEV ? [
-    new DashboardPlugin(),
     new CaseSensitivePathsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
