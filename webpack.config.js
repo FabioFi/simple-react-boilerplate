@@ -15,10 +15,7 @@ var config = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css'],
-    alias: {
-      css: '../css'
-    }
+    extensions: ['', '.js', '.jsx', '.css']
   },
   target: 'web',
   devtool: DEV ? 'eval' : null, // 'source-map'
