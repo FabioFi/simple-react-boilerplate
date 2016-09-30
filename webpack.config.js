@@ -83,7 +83,7 @@ var config = {
         exclude: /\/favicon.ico$/,
         loader: 'file',
         query: {
-          name: 'assets/[name].[ext]'
+          name: 'assets/media/[name].[hash:8].[ext]'
         }
       },
       {
