@@ -15,7 +15,8 @@ var config = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css']
+    extensions: ['', '.js', '.jsx', '.css'],
+    alias: { 'react/lib/ReactMount': 'react-dom/lib/ReactMount' }
   },
   target: 'web',
   devtool: DEV ? 'eval' : null, // 'source-map'
