@@ -71,14 +71,14 @@ var config = {
         loader: 'babel',
         query: {
           cacheDirectory: DEV,
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react-app']
         }
       },
       {
         test: /\.css$/,
         loader: DEV ?
           'style!css?importLoaders=1&modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss' :
-          ExtractTextPlugin.extract('style', 'css?importLoaders=1&-autoprefixer&modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss')
+          ExtractTextPlugin.extract('style', 'css?-autoprefixer&modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss')
       },
       {
         test: /\.(ico|jpe?g|png|gif|webp|svg)(\?.*)?$/,
@@ -103,6 +103,10 @@ var config = {
         query: {
           attrs: ['link:href']
         }
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
       }
     ]
   },
@@ -149,6 +153,7 @@ if (DEV) {
     colors: true,
     clientLogLevel: 'none',
     historyApiFallback: true,
+    host: '0.0.0.0',
     port: process.env.PORT || 3000
   }
 }
