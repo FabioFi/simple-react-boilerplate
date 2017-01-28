@@ -1,17 +1,21 @@
-import React from 'react'
+import React, { Component } from 'react'
+import Router from 'react-router/BrowserRouter'
+import Match from 'react-router/Match'
 
-import 'normalize.css/normalize.css'
-import styles from '../css/style'
+import styles from '../css/App'
 
-class App extends React.Component {
+import Home from './Home'
+import Hello from './Hello'
+
+export default class App extends Component {
   render () {
     return (
-      <div className={styles.container}>
-        <h1>Welcome</h1>
-        {this.props.children}
-      </div>
+      <Router>
+        <div className={styles.App}>
+          <Match exactly pattern='/' component={Home} />
+          <Match pattern='/hello' component={Hello} />
+        </div>
+      </Router>
     )
   }
 }
-
-export default App

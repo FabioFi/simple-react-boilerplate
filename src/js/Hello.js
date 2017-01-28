@@ -1,13 +1,15 @@
-import React from 'react'
-import { Link } from 'react-router'
+import React, { Component } from 'react'
+import Match from 'react-router/Match'
+import Link from 'react-router/Link'
 
-import styles from '../css/style'
+// import styles from '../css/style'
 
-class Hello extends React.Component {
+export default class Hello extends Component {
   render () {
     return (
-      <div className={styles.hello}>
-        <h2>Hello {this.props.params.name}</h2>
+      <div>
+        <Match pattern={`${this.props.pathname}/:name`} component={Name} />
+        <Match pattern={this.props.pathname} exactly component={Name} />
         <ul>
           <li><Link to='/'>Go Back</Link></li>
         </ul>
@@ -16,4 +18,10 @@ class Hello extends React.Component {
   }
 }
 
-export default Hello
+class Name extends Component {
+  render () {
+    return (
+      <h2>Hello {this.props.params.name}</h2>
+    )
+  }
+}

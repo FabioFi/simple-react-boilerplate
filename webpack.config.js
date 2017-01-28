@@ -1,38 +1,79 @@
-var path = require('path')
-var webpack = require('webpack')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
+const { resolve } = require('path')
+const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-var DEV = process.env.NODE_ENV === 'development'
+const DEV = process.env.NODE_ENV === 'development'
 
-var config = {
-  entry: [path.join(__dirname, 'src/js/index.js')],
+let config = {
+  entry: [resolve(__dirname, 'src/js/index.js')],
   output: {
     publicPath: '/',
-    pathinfo: DEV,
-    path: path.join(__dirname, 'build'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    path: resolve(__dirname, 'build')
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css'],
-    alias: { 'react/lib/ReactMount': 'react-dom/lib/ReactMount' }
+    extensions: ['*', '.js', '.css']
   },
-  target: 'web',
-  devtool: DEV ? 'eval' : null, // 'source-map'
+  devtool: DEV ? 'inline-source-map' : 'source-map',
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        loader: DEV ?
+          'style-loader!css-loader?modules&importLoaders=1!postcss-loader' :
+          ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?-autoprefixer&modules&importLoaders=1!postcss-loader'})
+      },
+      {
+        test: /\.(ico|jpe?g|png|gif|webp|svg|mp4|webm|wav|mp3|m4a|aac|oga)(\?.*)?$/,
+        include: resolve(__dirname, 'src'),
+        exclude: /\/favicon.ico$/,
+        loader: 'file-loader',
+        query: {
+          name: 'media/[name].[hash:8].[ext]'
+        }
+      },
+      {
+        test: /\/favicon.ico$/,
+        include: resolve(__dirname, 'src'),
+        loader: 'file-loader',
+        query: {
+          name: 'favicon.ico'
+        }
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
+        query: {
+          attrs: ['link:href']
+        }
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
+      }
+    ]
+  },
   plugins: DEV ? [
-    new CaseSensitivePathsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       inject: true,
       hash: true,
-      template: path.join(__dirname, 'src/index.html')
+      template: resolve(__dirname, 'src/index.html')
     })
-  ] : [ // Production
+  ] : [
     new HtmlWebpackPlugin({
       inject: true,
       hash: true,
-      template: path.join(__dirname, 'src/index.html'),
+      template: resolve(__dirname, 'src/index.html'),
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -46,92 +87,28 @@ var config = {
         minifyURLs: true
       }
     }),
-    new ExtractTextPlugin('style.css'),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
+    new ExtractTextPlugin({
+      filename: 'bundle.css'
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false
+    }),
     new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        screw_ie8: true, // React doesn't support IE8
-        warnings: false
-      },
+      beautify: false,
       mangle: {
-        screw_ie8: true
+        screw_ie8: true,
+      },
+      compress: {
+        screw_ie8: true,
+        warnings: false
       },
       output: {
         comments: false,
         screw_ie8: true
       }
     })
-  ],
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          cacheDirectory: DEV,
-          presets: ['es2015', 'react-app']
-        }
-      },
-      {
-        test: /\.css$/,
-        loader: DEV ?
-          'style!css?importLoaders=1&modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss' :
-          ExtractTextPlugin.extract('style', 'css?-autoprefixer&modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss')
-      },
-      {
-        test: /\.(ico|jpe?g|png|gif|webp|svg)(\?.*)?$/,
-        include: path.join(__dirname, 'src'),
-        exclude: /\/favicon.ico$/,
-        loader: 'file',
-        query: {
-          name: 'assets/media/[name].[hash:8].[ext]'
-        }
-      },
-      {
-        test: /\/favicon.ico$/,
-        include: path.join(__dirname, 'src'),
-        loader: 'file',
-        query: {
-          name: 'favicon.ico'
-        }
-      },
-      {
-        test: /\.html$/,
-        loader: 'html',
-        query: {
-          attrs: ['link:href']
-        }
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
-      }
-    ]
-  },
-  postcss: [
-    require('postcss-partial-import')(),
-    require('postcss-mixins')(),
-    require('postcss-advanced-variables')(),
-    require('postcss-custom-media')(),
-    require('postcss-extend')(),
-    require('postcss-nested')(),
-    require('postcss-property-lookup')(),
-    require('autoprefixer')({
-      browsers: [
-        '>1%',
-        'last 4 versions',
-        'Firefox ESR',
-        'not ie < 9', // React doesn't support IE8 anyway
-      ]
-    })
-  ],
-  node: {
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty'
-  }
+  ]
 }
 
 config.plugins.unshift(new webpack.DefinePlugin({
@@ -141,20 +118,13 @@ config.plugins.unshift(new webpack.DefinePlugin({
 }))
 
 if (DEV) {
-  config.entry.unshift('webpack-dev-server/client?/')
-  config.module.loaders.unshift({
-    test: /\.jsx?$/,
-    exclude: /node_modules/,
-    loader: 'react-hot'
-  })
+  config.entry.unshift('react-hot-loader/patch', 'webpack-dev-server/client?http://localhost:3000', 'webpack/hot/only-dev-server')
+  config.context = resolve(__dirname, 'src')
   config.devServer = {
     hot: true,
-    inline: true,
-    colors: true,
-    clientLogLevel: 'none',
     historyApiFallback: true,
-    host: '0.0.0.0',
-    port: process.env.PORT || 3000
+    host: 'localhost',
+    port: 3000
   }
 }
 

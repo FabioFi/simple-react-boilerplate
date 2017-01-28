@@ -8,13 +8,13 @@ Inspired by [`create-react-app`](https://github.com/facebookincubator/create-rea
 
 - `git clone https://github.com/AbeEstrada/react-boilerplate.git`
 - `cd react-boilerplate`
-- `npm install`
-- `npm start`
+- `yarn`
+- `yarn start`
 - Go to `http://localhost:3000/`
 
 ### Build
 
-- `npm run build`
+- `yarn run build`
 
 ### License
 

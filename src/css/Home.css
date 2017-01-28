@@ -1,0 +1,12 @@
+.Home {
+    ul {
+        li {
+            a {
+                transition: color 350ms ease;
+                &:hover {
+                    color: red;
+                }
+            }
+        }
+    }
+}

@@ -1,16 +1,22 @@
 import React from 'react'
-import { render } from 'react-dom'
-import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import ReactDOM from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
 
 import App from './App'
-import Home from './Home'
-import Hello from './Hello'
 
-render((
-  <Router history={browserHistory}>
-    <Route path='/' component={App}>
-      <IndexRoute component={Home} />
-      <Route path='/hello(/:name)' component={Hello} />
-    </Route>
-  </Router>
-), document.getElementById('root'))
+const render = (Component) => {
+  ReactDOM.render((
+    <AppContainer>
+      <Component />
+    </AppContainer>
+  ), document.getElementById('root'))
+}
+
+render(App)
+
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    render(App)
+  })
+}
+
