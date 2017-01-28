@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import Router from 'react-router/BrowserRouter'
-import Match from 'react-router/Match'
+import { BrowserRouter, Match } from 'react-router'
 
 import styles from '../css/App'
 
@@ -10,12 +9,14 @@ import Hello from './Hello'
 export default class App extends Component {
   render () {
     return (
-      <Router>
-        <div className={styles.App}>
-          <Match exactly pattern='/' component={Home} />
-          <Match pattern='/hello' component={Hello} />
-        </div>
-      </Router>
+      <BrowserRouter>
+        {({ router }) => (
+          <div className={styles.App}>
+            <Match exactly pattern='/' render={(props) => <Home router={router} {...props} />} />
+            <Match pattern='/hello' render={(props) => <Hello router={router} {...props} />} />
+          </div>
+        )}
+      </BrowserRouter>
     )
   }
 }

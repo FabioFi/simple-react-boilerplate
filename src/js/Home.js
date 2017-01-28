@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Link from 'react-router/Link'
+import { Link } from 'react-router'
 
 import styles from '../css/Home'
 import kermit from '../images/kermit.jpg'

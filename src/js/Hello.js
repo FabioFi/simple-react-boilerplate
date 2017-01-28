@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import Match from 'react-router/Match'
-import Link from 'react-router/Link'
+import { Match, Link } from 'react-router'
 
-// import styles from '../css/style'
 
 export default class Hello extends Component {
   render () {
