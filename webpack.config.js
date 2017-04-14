@@ -28,7 +28,10 @@ let config = {
         exclude: /node_modules/,
         loader: DEV ?
           'style-loader!css-loader?modules&importLoaders=1!postcss-loader' :
-          ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?-autoprefixer&modules&importLoaders=1!postcss-loader'})
+          ExtractTextPlugin.extract({
+            fallbackLoader: 'style-loader',
+            loader: 'css-loader?-autoprefixer&modules&importLoaders=1!postcss-loader'
+          })
       },
       {
         test: /\.(ico|jpe?g|png|gif|webp|svg|mp4|webm|wav|mp3|m4a|aac|oga)(\?.*)?$/,
@@ -118,7 +121,11 @@ config.plugins.unshift(new webpack.DefinePlugin({
 }))
 
 if (DEV) {
-  config.entry.unshift('react-hot-loader/patch', 'webpack-dev-server/client?http://localhost:3000', 'webpack/hot/only-dev-server')
+  config.entry.unshift(
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server'
+  )
   config.context = resolve(__dirname, 'src')
   config.devServer = {
     hot: true,
