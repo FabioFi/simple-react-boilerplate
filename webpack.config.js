@@ -39,7 +39,7 @@ let config = {
         exclude: /\/favicon.ico$/,
         loader: 'file-loader',
         query: {
-          name: 'media/[name].[hash:8].[ext]'
+          name: 'assets/[name].[hash:8].[ext]'
         }
       },
       {
