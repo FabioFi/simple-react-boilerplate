@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import { Match, Link } from 'react-router'
-
+import { Route, Link } from 'react-router-dom'
 
 export default class Hello extends Component {
   render () {
     return (
       <div>
-        <Match pattern={`${this.props.pathname}/:name`} component={Name} />
-        <Match pattern={this.props.pathname} exactly component={Name} />
+        <Route path={`${this.props.match.url}/:name`} component={Name} />
+        <Route path={this.props.match.url} exact component={Name} />
         <ul>
           <li><Link to='/'>Go Back</Link></li>
         </ul>
@@ -19,7 +18,7 @@ export default class Hello extends Component {
 class Name extends Component {
   render () {
     return (
-      <h2>Hello {this.props.params.name}</h2>
+      <h2>Hello {this.props.match.params.name}</h2>
     )
   }
 }
