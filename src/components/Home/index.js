@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import styles from '../css/Home'
-import kermit from '../images/kermit.jpg'
+import styles from './styles'
+import kermit from '../../images/kermit.jpg'
 
 export default class Home extends Component {
   state = {

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import styles from '../css/App'
+import styles from './styles'
 
-import Home from './Home'
-import Hello from './Hello'
+import Home from '../Home'
+import Hello from '../Hello'
 
 export default class App extends Component {
   render () {

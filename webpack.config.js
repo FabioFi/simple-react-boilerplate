@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const DEV = process.env.NODE_ENV === 'development'
 
 let config = {
-  entry: [resolve(__dirname, 'src/js/index.js')],
+  entry: [resolve(__dirname, 'src/index.js')],
   output: {
     publicPath: '/',
     filename: 'bundle.js',
