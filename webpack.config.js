@@ -15,7 +15,7 @@ let config = {
   resolve: {
     extensions: ['*', '.js', '.css']
   },
-  devtool: DEV ? 'inline-source-map' : 'source-map',
+  devtool: DEV ? 'cheap-module-eval-source-map' : 'source-map',
   module: {
     rules: [
       {
@@ -121,17 +121,12 @@ config.plugins.unshift(new webpack.DefinePlugin({
 }))
 
 if (DEV) {
-  config.entry.unshift(
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server'
-  )
   config.context = resolve(__dirname, 'src')
   config.devServer = {
-    hot: true,
-    historyApiFallback: true,
     host: 'localhost',
-    port: 3000
+    port: process.env.PORT || 3000,
+    hot: true,
+    historyApiFallback: true
   }
 }
 

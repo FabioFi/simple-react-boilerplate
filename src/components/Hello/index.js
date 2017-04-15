@@ -1,18 +1,13 @@
-import React from 'react'
-import { Route, Link } from 'react-router-dom'
+import { h } from 'preact'
+import { Link } from 'preact-router'
 
-const Hello = ({ match }) => (
+const Hello = ({ name }) => (
   <div>
-    <Route path={`${match.url}/:name`} component={Name} />
-    <Route path={match.url} exact component={Name} />
+    <h2>Hello {name}</h2>
     <ul>
-      <li><Link to='/'>Go Back</Link></li>
+      <li><Link href='/'>Go Back</Link></li>
     </ul>
   </div>
-)
-
-const Name = ({ match }) => (
-  <h2>Hello {match.params.name}</h2>
 )
 
 export default Hello

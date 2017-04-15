@@ -1,10 +1,10 @@
 {
+  "sourceMaps": true,
   "presets": [
     ["es2015", {"modules": false}],
-    "stage-2",
-    "react"
+    "stage-2"
   ],
   "plugins": [
-    "react-hot-loader/babel"
+    ["transform-react-jsx", { "pragma": "h" }]
   ]
 }

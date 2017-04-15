@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { h, Component } from 'preact'
+import { Link } from 'preact-router'
 
 import styles from './styles'
 import kermit from '../../images/kermit.jpg'
@@ -14,8 +14,8 @@ export default class Home extends Component {
       <div className={styles.Home}>
         <h2>Home</h2>
         <ul>
-          <li><Link to={`/hello`}>Hello</Link></li>
-          <li><Link to={`/hello/${this.state.name}`}>World</Link></li>
+          <li><Link href={`/hello`}>Hello</Link></li>
+          <li><Link href={`/hello/${this.state.name}`}>{this.state.name.toUpperCase()}</Link></li>
         </ul>
         <p>
           <img src={kermit} />
