@@ -20,6 +20,6 @@ export default class App extends Component {
           <Hello path='/hello/:name' />
         </Router>
       </div>
-    );
+    )
   }
 }
