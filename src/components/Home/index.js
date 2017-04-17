@@ -9,13 +9,13 @@ export default class Home extends Component {
     name: 'world'
   }
 
-  render () {
+  render (props, state) {
     return (
       <div className={styles.Home}>
         <h2>Home</h2>
         <ul>
           <li><Link href={`/hello`}>Hello</Link></li>
-          <li><Link href={`/hello/${this.state.name}`}>{this.state.name.toUpperCase()}</Link></li>
+          <li><Link href={`/hello/${state.name}`}>{state.name.toUpperCase()}</Link></li>
         </ul>
         <p>
           <img src={kermit} />
