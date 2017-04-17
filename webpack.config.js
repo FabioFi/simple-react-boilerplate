@@ -111,7 +111,12 @@ let config = {
         screw_ie8: true
       }
     })
-  ]
+  ],
+  node: {
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+  }
 }
 
 config.plugins.unshift(new webpack.DefinePlugin({
@@ -132,6 +137,9 @@ if (DEV) {
     historyApiFallback: true,
     host: 'localhost',
     port: 3000
+  }
+  config.performance = {
+    hints: false
   }
 }
 
