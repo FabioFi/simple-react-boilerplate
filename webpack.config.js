@@ -15,7 +15,7 @@ let config = {
   resolve: {
     extensions: ['*', '.js', '.css']
   },
-  devtool: DEV ? 'inline-source-map' : 'source-map',
+  devtool: DEV ? 'cheap-module-source-map' : 'source-map',
   module: {
     rules: [
       {
