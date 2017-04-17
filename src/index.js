@@ -4,12 +4,13 @@ import { AppContainer } from 'react-hot-loader'
 
 import App from './components/App'
 
-const render = (Component) => {
-  ReactDOM.render((
+const render = Component => {
+  ReactDOM.render(
     <AppContainer>
       <Component />
-    </AppContainer>
-  ), document.getElementById('root'))
+    </AppContainer>,
+    document.getElementById('root')
+  )
 }
 
 render(App)
@@ -19,4 +20,3 @@ if (module.hot) {
     render(App)
   })
 }
-

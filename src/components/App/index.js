@@ -9,8 +9,8 @@ import Hello from '../Hello'
 const App = () => (
   <Router>
     <div className={styles.App}>
-      <Route exact path='/' component={Home}/>
-      <Route path='/hello' component={Hello} />
+      <Route exact path="/" component={Home} />
+      <Route path="/hello" component={Hello} />
     </div>
   </Router>
 )

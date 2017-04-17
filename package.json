@@ -4,7 +4,8 @@
   "description": "React Boilerplate",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server",
-    "build": "NODE_ENV=production  webpack --progress --profile --colors"
+    "build": "NODE_ENV=production  webpack --progress --profile --colors",
+    "test": "prettier --single-quote --no-semi --write 'src/**/*.js'"
   },
   "author": "Abraham Estrada",
   "license": "MIT",
@@ -36,6 +37,7 @@
     "postcss-loader": "^1.3.3",
     "postcss-nested": "^1.0.1",
     "postcss-partial-import": "^3.1.1",
+    "prettier": "^1.1.0",
     "react-hot-loader": "3.0.0-beta.6",
     "style-loader": "^0.16.1",
     "webpack": "^2.3.3",

@@ -9,7 +9,7 @@ export default class Home extends Component {
     name: 'world'
   }
 
-  render () {
+  render() {
     return (
       <div className={styles.Home}>
         <h2>Home</h2>
