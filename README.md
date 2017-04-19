@@ -18,7 +18,9 @@ yarn start
 
 ### Build
 
-- `yarn run build`
+```bash
+yarn run build
+```
 
 ### License
 
