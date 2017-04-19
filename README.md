@@ -4,13 +4,17 @@ It is a simple React project boilerplate, it uses Webpack, Babel, React Router a
 
 Inspired by [`create-react-app`](https://github.com/facebookincubator/create-react-app).
 
-### Usage
+### Quick Setup
 
-- `git clone https://github.com/AbeEstrada/react-boilerplate.git`
-- `cd react-boilerplate`
-- `yarn`
-- `yarn start`
-- Go to `http://localhost:3000/`
+```bash
+curl -o- -L https://yarnpkg.com/install.sh | bash -s
+git clone https://github.com/AbeEstrada/react-boilerplate.git
+
+cd react-boilerplate
+yarn
+yarn start
+# Go to http://localhost:3000
+```
 
 ### Build
 
@@ -18,4 +22,4 @@ Inspired by [`create-react-app`](https://github.com/facebookincubator/create-rea
 
 ### License
 
-MIT
+[MIT](./LICENSE)
