@@ -5,7 +5,7 @@
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --mode development",
     "build": "NODE_ENV=production  webpack --mode production --progress --profile --colors",
-    "test": "prettier --single-quote --no-semi --write 'src/**/*.js'"
+    "test": "prettier --write 'src/**/*.js'"
   },
   "author": "Abraham Estrada",
   "license": "MIT",
