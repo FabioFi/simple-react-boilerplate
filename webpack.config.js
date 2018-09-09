@@ -13,6 +13,7 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: DIST_PATH,
+    publicPath: "/",
     filename: "[name].[hash:8].js"
   },
   target: "web",
@@ -119,5 +120,9 @@ module.exports = {
         }
       })
     ]
+  },
+  devServer: {
+    hot: true,
+    historyApiFallback: true
   }
 };
