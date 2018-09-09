@@ -104,8 +104,8 @@ module.exports = {
           }
     }),
     new MiniCssExtractPlugin({
-      filename: DEV ? "[name].css" : "[name].[hash].css",
-      chunkFilename: DEV ? "[id].css" : "[id].[hash].css"
+      filename: DEV ? "[name].css" : "[name].[hash:8].css",
+      chunkFilename: DEV ? "[id].css" : "[id].[hash:8].css"
     }),
     new webpack.HotModuleReplacementPlugin()
   ],
