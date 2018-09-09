@@ -1,10 +1,10 @@
-import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import styles from './styles'
+import styles from "./styles.scss";
 
-import Home from '../Home'
-import Hello from '../Hello'
+import Home from "../Home";
+import Hello from "../Hello";
 
 const App = () => (
   <Router>
@@ -13,6 +13,6 @@ const App = () => (
       <Route path="/hello" component={Hello} />
     </div>
   </Router>
-)
+);
 
-export default App
+export default App;
