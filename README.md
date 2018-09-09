@@ -1,25 +1,24 @@
 ## Simple React Boilerplate
 
-It is a simple React project boilerplate, it uses Webpack, Babel, React Router and SASS like PostCSS plugins.
+It is a simple React project boilerplate, it uses Webpack, Babel, React Router and SASS.
 
 Inspired by [`create-react-app`](https://github.com/facebookincubator/create-react-app).
 
 ### Quick Setup
 
 ```bash
-curl -o- -L https://yarnpkg.com/install.sh | bash -s
 git clone https://github.com/AbeEstrada/simple-react-boilerplate.git
 
 cd simple-react-boilerplate
-yarn
-yarn start
-# Go to http://localhost:3000
+npm install
+npm start
+# Go to http://localhost:8080
 ```
 
 ### Build
 
 ```bash
-yarn run build
+npm run build
 ```
 
 ### License
