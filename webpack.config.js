@@ -48,6 +48,13 @@ module.exports = {
             }
           },
           {
+            loader: "postcss-loader",
+            options: {
+              ident: "postcss",
+              plugins: [require("autoprefixer")]
+            }
+          },
+          {
             loader: "sass-loader",
             options: { outputStyle: "compressed" }
           }
