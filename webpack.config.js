@@ -39,12 +39,7 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         use: [
           {
-            loader: DEV ? "style-loader" : MiniCssExtractPlugin.loader,
-            options: DEV
-              ? {}
-              : {
-                  publicPath: DIST_PATH
-                }
+            loader: DEV ? "style-loader" : MiniCssExtractPlugin.loader
           },
           {
             loader: "css-loader",
