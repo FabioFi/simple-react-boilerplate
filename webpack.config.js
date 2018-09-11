@@ -21,7 +21,8 @@ module.exports = {
   // devtool: "inline-source-map",
   devServer: {
     contentBase: DIST_PATH,
-    hot: true
+    hot: true,
+    historyApiFallback: true
   },
   module: {
     rules: [
@@ -122,9 +123,5 @@ module.exports = {
         }
       })
     ]
-  },
-  devServer: {
-    hot: true,
-    historyApiFallback: true
   }
 };
