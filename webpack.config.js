@@ -62,18 +62,6 @@ module.exports = {
         ]
       },
       {
-        test: /\/favicon.ico$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "favicon.ico",
-              outputPath: "/"
-            }
-          }
-        ]
-      },
-      {
         test: /\.(ico|jpe?g|png|gif|webp|svg|mp4|webm|wav|mp3|m4a|aac|oga)(\?.*)?$/,
         use: [
           {
