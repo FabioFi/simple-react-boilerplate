@@ -76,7 +76,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin([DIST]),
+    new CleanWebpackPlugin([`${DIST}/*.*`, `${DIST}/static`], {
+      exclude: [".git*"]
+    }),
     new HtmlWebpackPlugin({
       template: DEV ? "./src/index.html" : "!!prerender-loader?string!./src/index.html",
       filename: "index.html",
